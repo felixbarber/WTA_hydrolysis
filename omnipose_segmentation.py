@@ -23,8 +23,24 @@ import time
 # User input:
 
 base_path="/Volumes/data_ssd2/Barber_Lab/data"
-expt_id="/260217_bFB292_IPTG_Mg"
+expt_id="/260313_bBF292_IPTG"
 num_scenes=4
+
+# base_path="/Volumes/data_ssd2/Rojas_Lab/data"
+# expt_id="/250325_bFB293_IPTG_induction"
+# num_scenes=4
+
+# base_path="/Volumes/data_ssd2/Barber_Lab/data"
+# expt_id="/260305_bFB292_IPTG"
+# num_scenes=4
+
+# base_path="/Volumes/data_ssd2/Rojas_Lab/data"
+# expt_id="/250403_bFB292_IPTG_induction"
+# num_scenes=2
+
+# base_path="/Volumes/data_ssd2/Barber_Lab/data"
+# expt_id="/260217_bFB292_IPTG_Mg"
+# num_scenes=4
 
 # base_path="/Volumes/data_ssd2/Barber_Lab/data"
 # expt_id="/260217_bFB292_IPTG_Mg"

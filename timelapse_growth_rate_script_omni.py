@@ -31,19 +31,66 @@ remove_fliers = True
 # User inputs
 ########################################################################################################
 
-expt_id = '/260217_bFB292_IPTG_Mg'
-tsteps = 286
+# expt_id = '/250325_bFB293_IPTG_induction'
+# tsteps = 361
+# dt = 20.0*np.ones(tsteps-1) # time interval between timepoints in seconds
+# labels = ['1mM IPTG added']
+# t_pert = [10*60.0]
+# max_time_truncation = 140*60.0
+# scene_nums = 4  # Note that this timelapse had some growth in scene 5 but that these cells were very far away from the
+# # inlet and likely received a lower dose of GlpQ based on CY5 channel
+# max_width = 2.5
+# min_width = 0.5
+# min_length = 2.0
+# perform_ttest=False
+# base_path='/Volumes/data_ssd2/Rojas_Lab/data/'
+# data_path='/Volumes/data_ssd2/Rojas_Lab/data/'
+
+expt_id = '/260305_bFB292_IPTG'
+tsteps = 361
 dt = 20.0*np.ones(tsteps-1) # time interval between timepoints in seconds
-labels = ['1mM IPTG added', r'MgCl$_2$ added']
-t_pert = [5*60.0, 65*60.0]
+labels = ['1mM IPTG added']
+t_pert = [10*60.0]
 max_time_truncation = 140*60.0
-scene_nums = 4
-max_width = 4.0
+scene_nums = 4  # Note that this timelapse had some growth in scene 5 but that these cells were very far away from the
+# inlet and likely received a lower dose of GlpQ based on CY5 channel
+max_width = 2.5
 min_width = 0.5
 min_length = 2.0
 perform_ttest=False
-base_path='/Volumes/data_ssd2/Barber_Lab/data'
-data_path='/Volumes/data_ssd2/Barber_Lab/data'
+base_path='/Volumes/data_ssd2/Barber_Lab/data/'
+data_path='/Volumes/data_ssd2/Barber_Lab/data/'
+
+
+
+# expt_id = '/250403_bFB292_IPTG_induction'
+# tsteps = 361
+# dt = 20.0*np.ones(tsteps-1) # time interval between timepoints in seconds
+# labels = ['1mM IPTG added']
+# t_pert = [10*60.0]
+# max_time_truncation = 140*60.0
+# scene_nums = 2  # Note that this timelapse had some growth in scene 5 but that these cells were very far away from the
+# # inlet and likely received a lower dose of GlpQ based on CY5 channel
+# max_width = 2.5
+# min_width = 0.5
+# min_length = 2.0
+# perform_ttest=False
+# base_path='/Volumes/data_ssd2/Rojas_Lab/data/'
+# data_path='/Volumes/data_ssd2/Rojas_Lab/data/'
+
+# expt_id = '/260217_bFB292_IPTG_Mg'
+# tsteps = 286
+# dt = 20.0*np.ones(tsteps-1) # time interval between timepoints in seconds
+# labels = ['1mM IPTG added', r'MgCl$_2$ added']
+# t_pert = [5*60.0, 65*60.0]
+# max_time_truncation = 140*60.0
+# scene_nums = 4
+# max_width = 4.0
+# min_width = 0.5
+# min_length = 2.0
+# perform_ttest=False
+# base_path='/Volumes/data_ssd2/Barber_Lab/data'
+# data_path='/Volumes/data_ssd2/Barber_Lab/data'
 
 
 # Generic code to be run.
@@ -52,7 +99,7 @@ thresh = 0.00005  # threshold for the average growth rate below which we preclud
 # low to make sure that cells are actually not growing at all.
 window = 2 # number of time points on either side with which to calculate the local slope
 flier_thresh = 2.0 # threshold for number of iqrs away from median growth rate beyond which we preclude cells from analysis.
-w_flier_thresh = 2.0 # threshold for cell width relative rate of change beyond which we preclude cells from analysis.
+w_flier_thresh = 3.0 # threshold for cell width relative rate of change beyond which we preclude cells from analysis.
 tvec=np.cumsum(dt)
 tvec=np.insert(tvec,0,0.0)
 max_tstep_truncation = len(tvec) # this is the point at which the analysis truncates if you want it to be before the
@@ -163,29 +210,37 @@ if remove_fliers:
     sgrstd = scipy.stats.iqr(sgr_w,axis=0,nan_policy='omit')
     fliers = np.absolute(sgr_w-np.tile(sgrmed,[sgr_w.shape[0],1]))/np.tile(sgrstd,[sgr_w.shape[0],1])>w_flier_thresh
     flier_inds = np.nonzero(np.amax(fliers, axis=1))
-    sgr_w[flier_inds, :] = np.nan
-    sgr_l[flier_inds, :] = np.nan
-    sgr_w[flier_inds, :] = np.nan
-    wcell[flier_inds, :] = np.nan
-    sgr_sa[flier_inds, :] = np.nan
-    lcell[flier_inds, :] = np.nan
-    # sgr_w[np.nonzero(fliers)]=np.nan
-    # sgr_l[np.nonzero(fliers)] = np.nan
-    # sgr_w[np.nonzero(fliers)] = np.nan
-    # wcell[np.nonzero(fliers)] = np.nan
-    # sgr_sa[np.nonzero(fliers)] = np.nan
-    # lcell[np.nonzero(fliers)] = np.nan
+    # sgr_w[flier_inds, :] = np.nan
+    # sgr_l[flier_inds, :] = np.nan
+    # sgr_w[flier_inds, :] = np.nan
+    # wcell[flier_inds, :] = np.nan
+    # sgr_sa[flier_inds, :] = np.nan
+    # lcell[flier_inds, :] = np.nan
+
+    sgr_w[np.nonzero(fliers)]=np.nan
+    sgr_l[np.nonzero(fliers)] = np.nan
+    sgr_w[np.nonzero(fliers)] = np.nan
+    wcell[np.nonzero(fliers)] = np.nan
+    sgr_sa[np.nonzero(fliers)] = np.nan
+    lcell[np.nonzero(fliers)] = np.nan
 
     sgrmed = np.nanmedian(sgr_l,axis=0)
     sgrstd = scipy.stats.iqr(sgr_l,axis=0,nan_policy='omit')
     fliers = np.absolute(sgr_l-np.tile(sgrmed,[sgr_l.shape[0],1]))/np.tile(sgrstd,[sgr_l.shape[0],1])>flier_thresh
     flier_inds = np.nonzero(np.amax(fliers, axis=1))
-    sgr_w[flier_inds, :] = np.nan
-    sgr_l[flier_inds, :] = np.nan
-    sgr_w[flier_inds, :] = np.nan
-    wcell[flier_inds, :] = np.nan
-    sgr_sa[flier_inds, :] = np.nan
-    lcell[flier_inds, :] = np.nan
+    # sgr_w[flier_inds, :] = np.nan
+    # sgr_l[flier_inds, :] = np.nan
+    # sgr_w[flier_inds, :] = np.nan
+    # wcell[flier_inds, :] = np.nan
+    # sgr_sa[flier_inds, :] = np.nan
+    # lcell[flier_inds, :] = np.nan
+
+    sgr_w[np.nonzero(fliers)]=np.nan
+    sgr_l[np.nonzero(fliers)] = np.nan
+    sgr_w[np.nonzero(fliers)] = np.nan
+    wcell[np.nonzero(fliers)] = np.nan
+    sgr_sa[np.nonzero(fliers)] = np.nan
+    lcell[np.nonzero(fliers)] = np.nan
 
 ###################################################################
 # plotting the cell length growth rate traces
@@ -350,7 +405,7 @@ plt.clf()
 # plotting a nicer set of traces of cell widths
 
 wmed = np.nanmedian(wcell,axis=0)
-wstd = np.nanstd(wcell,axis=0)
+wstd = scipy.stats.iqr(wcell,axis=0)
 
 xv=time[:]
 fig=plt.figure(figsize=[8,5])
