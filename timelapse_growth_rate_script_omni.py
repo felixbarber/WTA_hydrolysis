@@ -26,10 +26,115 @@ sns.set_style("whitegrid")
 
 remove_non_growing_cells = True
 remove_fliers = True
-
+corr=1.0 # To be redefined if lengthscales need to be corrected.
 ########################################################################################################
 # User inputs
 ########################################################################################################
+
+expt_id = '/250402_bFB66_LB'
+tsteps = 361
+dt = 20.0*np.ones(tsteps-1) # time interval between timepoints in seconds
+labels = ['LB Switched']
+t_pert = [60*60.0]
+max_time_truncation = 140*60.0
+scene_nums = 2
+max_width = 4.0
+min_width = 0.5
+min_length = 2.0
+perform_ttest=False
+base_path='/Volumes/data_ssd2/Rojas_Lab/data/'
+data_path='/Volumes/data_ssd2/Rojas_Lab/data/'
+
+# expt_id = '/250326_bFB295_IPTG_induction'
+# tsteps = 361
+# dt = 20.0*np.ones(tsteps-1) # time interval between timepoints in seconds
+# labels = ['1mM IPTG added']
+# t_pert = [10*60.0]
+# max_time_truncation = 140*60.0
+# scene_nums = 3  # Note that this timelapse had some growth in scene 5 but that these cells were very far away from the
+# # inlet and likely received a lower dose of GlpQ based on CY5 channel
+# max_width = 4.0
+# min_width = 0.5
+# min_length = 2.0
+# perform_ttest=False
+# base_path='/Volumes/data_ssd2/Rojas_Lab/data/'
+# data_path='/Volumes/data_ssd2/Rojas_Lab/data/'
+
+# expt_id = '/250324_bFB291_IPTG_induction'
+# tsteps = 361
+# dt = 20.0*np.ones(tsteps-1) # time interval between timepoints in seconds
+# labels = ['1mM IPTG added']
+# t_pert = [10*60.0]
+# max_time_truncation = 140*60.0
+# scene_nums = 4  # Note that this timelapse had some growth in scene 5 but that these cells were very far away from the
+# # inlet and likely received a lower dose of GlpQ based on CY5 channel
+# max_width = 4.0
+# min_width = 0.5
+# min_length = 2.0
+# perform_ttest=False
+# base_path='/Volumes/data_ssd2/Rojas_Lab/data/'
+# data_path='/Volumes/data_ssd2/Rojas_Lab/data/'
+
+# expt_id = '/260216_bFB292_IPTG_Mg'
+# tsteps = 286
+# dt = 20.0*np.ones(tsteps-1) # time interval between timepoints in seconds
+# labels = ['1mM IPTG added', r'MgCl$_2$ added']
+# t_pert = [5*60.0, 65*60.0]
+# max_time_truncation = 140*60.0
+# scene_nums = 4
+# max_width = 4.0
+# min_width = 0.5
+# min_length = 2.0
+# perform_ttest=False
+# base_path='/Volumes/data_ssd2/Rojas_Lab/data'
+# data_path='/Volumes/data_ssd2/Rojas_Lab/data'
+
+# expt_id = '/260414_bFB292_IPTG'
+# tsteps = 361
+# dt = 20.0*np.ones(tsteps-1) # time interval between timepoints in seconds
+# labels = ['1mM IPTG added']
+# t_pert = [10*60.0]
+# max_time_truncation = 140*60.0
+# scene_nums = 3  # Note that this timelapse had some growth in scene 5 but that these cells were very far away from the
+# # inlet and likely received a lower dose of GlpQ based on CY5 channel
+# max_width = 2.5
+# min_width = 0.5
+# min_length = 2.0
+# perform_ttest=False
+# base_path='/Volumes/data_ssd2/Barber_Lab/data/'
+# data_path='/Volumes/data_ssd2/Barber_Lab/data/'
+
+# expt_id = '/260316_bBF292_IPTG_Mg'
+# tsteps = 331
+# dt = 20.0*np.ones(tsteps-1) # time interval between timepoints in seconds
+# labels = ['1mM IPTG added', '10mM MgCl2 added']
+# t_pert = [10*60.0, 80*60.0]
+# max_time_truncation = 140*60.0
+# scene_nums = 4  # Note that this timelapse had some growth in scene 5 but that these cells were very far away from the
+# # inlet and likely received a lower dose of GlpQ based on CY5 channel
+# max_width = 2.5
+# min_width = 0.5
+# min_length = 2.0
+# perform_ttest=False
+# base_path='/Volumes/data_ssd2/Barber_Lab/data/'
+# data_path='/Volumes/data_ssd2/Barber_Lab/data/'
+
+
+# expt_id = '/260313_bBF292_IPTG'
+# tsteps = 361
+# dt = 20.0*np.ones(tsteps-1) # time interval between timepoints in seconds
+# labels = ['1mM IPTG added']
+# t_pert = [10*60.0]
+# max_time_truncation = 140*60.0
+# scene_nums = 4  # Note that this timelapse had some growth in scene 5 but that these cells were very far away from the
+# # inlet and likely received a lower dose of GlpQ based on CY5 channel
+# max_width = 2.5
+# min_width = 0.5
+# min_length = 2.0
+# perform_ttest=False
+# base_path='/Volumes/data_ssd2/Barber_Lab/data/'
+# data_path='/Volumes/data_ssd2/Barber_Lab/data/'
+
 
 # expt_id = '/250325_bFB293_IPTG_induction'
 # tsteps = 361
@@ -46,20 +151,20 @@ remove_fliers = True
 # base_path='/Volumes/data_ssd2/Rojas_Lab/data/'
 # data_path='/Volumes/data_ssd2/Rojas_Lab/data/'
 
-expt_id = '/260305_bFB292_IPTG'
-tsteps = 361
-dt = 20.0*np.ones(tsteps-1) # time interval between timepoints in seconds
-labels = ['1mM IPTG added']
-t_pert = [10*60.0]
-max_time_truncation = 140*60.0
-scene_nums = 4  # Note that this timelapse had some growth in scene 5 but that these cells were very far away from the
-# inlet and likely received a lower dose of GlpQ based on CY5 channel
-max_width = 2.5
-min_width = 0.5
-min_length = 2.0
-perform_ttest=False
-base_path='/Volumes/data_ssd2/Barber_Lab/data/'
-data_path='/Volumes/data_ssd2/Barber_Lab/data/'
+# expt_id = '/260305_bFB292_IPTG'
+# tsteps = 361
+# dt = 20.0*np.ones(tsteps-1) # time interval between timepoints in seconds
+# labels = ['1mM IPTG added']
+# t_pert = [10*60.0]
+# max_time_truncation = 140*60.0
+# scene_nums = 4  # Note that this timelapse had some growth in scene 5 but that these cells were very far away from the
+# # inlet and likely received a lower dose of GlpQ based on CY5 channel
+# max_width = 2.5
+# min_width = 0.5
+# min_length = 2.0
+# perform_ttest=False
+# base_path='/Volumes/data_ssd2/Barber_Lab/data/'
+# data_path='/Volumes/data_ssd2/Barber_Lab/data/'
 
 
 
@@ -77,6 +182,7 @@ data_path='/Volumes/data_ssd2/Barber_Lab/data/'
 # perform_ttest=False
 # base_path='/Volumes/data_ssd2/Rojas_Lab/data/'
 # data_path='/Volumes/data_ssd2/Rojas_Lab/data/'
+# corr=0.0929/0.065
 
 # expt_id = '/260217_bFB292_IPTG_Mg'
 # tsteps = 286
@@ -125,9 +231,9 @@ for i0 in range(1, scene_nums+1):
     temp1.append(np.asarray(data['wcell']))
     temp2.append(np.asarray(data['sacell']))
     temp3.append(i0*np.ones(data['lcell'].shape[0]))
-lcell = np.concatenate(temp,axis=0)
-wcell = np.concatenate(temp1,axis=0)
-sacell = np.concatenate(temp2,axis=0)
+lcell = np.concatenate(temp,axis=0)*corr
+wcell = np.concatenate(temp1,axis=0)*corr
+sacell = np.concatenate(temp2,axis=0)*(corr)**2
 scene_num_tracker = np.concatenate(temp3,axis=0)
 # filtering the data based on dimensions
 sacell=sacell[:, :max_tstep_truncation]

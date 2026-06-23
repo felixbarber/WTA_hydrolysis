@@ -18,16 +18,26 @@ out_path='/Users/barber.527/Documents/GitHub/WTA_hydrolysis/'
 
 data_labels = []
 
-max_time=400 # Maximum time for OD saturation plot.
+max_time=200 # Maximum time for OD saturation plot.
 
 plot_pert=False # Note: if using plot_pert, you will need to also define pert_time (in minutes), pert_label (string),
 # and temp_xmax (maximum time for plotting)
 
 # path = '/Users/barber.527/Documents/Rojas_Lab/data' # the base directory path
-path = '/Volumes/data_ssd2/Barber_Lab/data' # the base directory path
+# path = '/Volumes/data_ssd2/Barber_Lab/data' # the base directory path
+path = '/Volumes/data_ssd3/Barber_Lab/data' # the base directory path
 
 # expt_id = '/260306_IPTG_lytE_cwlO' # the experiment title
-expt_id = '/260313_IPTG_induction_plate_reader' # the experiment title
+# expt_id = '/260313_IPTG_induction_plate_reader' # the experiment title
+# expt_id = '/260316_IPTG_Mg_plate_reader' # the experiment title
+# expt_id = '/260410_Mg_PBP1' # the experiment title
+# expt_id = '/260413_bFB292_IPTG_titration' # the experiment title
+# expt_id = '/260414_IPTG_induction_Mg' # the experiment title
+# expt_id = '/260528_hydrolase_tun_sens' # the experiment title
+# expt_id = '/260529_pSpac_tun' # the experiment title
+# expt_id = '/260611_IPTG_LB_tester' # the experiment title
+# expt_id = '/260612_LB_tester' # the experiment title
+expt_id = '/260616_IPTG_Mg_growth_curves' # the experiment title
 
 num_rep=4 # this is the number of repeats of each condition.
 

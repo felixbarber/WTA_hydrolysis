@@ -21,10 +21,164 @@ import matplotlib.pyplot as plt
 import time
 
 # User input:
+# num_scenes = 8
+# expt_id="/210723_FB8_Tun_Response"
+# base_path="/Volumes/data_ssd2/Rojas_Lab/data/"
 
-base_path="/Volumes/data_ssd2/Barber_Lab/data"
-expt_id="/260313_bBF292_IPTG"
-num_scenes=4
+# num_scenes = 6
+# expt_id="/211216_bFB8_Tun_gr"
+# base_path="/Volumes/data_ssd1/Rojas_Lab/data/"
+
+# num_scenes = 6
+# expt_id="/211020_bFB8_Tun"
+# base_path="/Volumes/data_ssd2/Rojas_Lab/data/"
+
+# num_scenes = 3
+# expt_id="/260612_bFB292_IPTG"
+# base_path="/Volumes/data_ssd3/Barber_Lab/data/"
+
+num_scenes = 3
+expt_id="/260612_bFB295_IPTG_Mg"
+base_path="/Volumes/data_ssd3/Barber_Lab/data/"
+
+# num_scenes = 4
+# expt_id="/260612_bFB292_IPTG_Mg"
+# base_path="/Volumes/data_ssd3/Barber_Lab/data/"
+
+# num_scenes = 4
+# expt_id="/260611_bFB292_IPTG_Mg"
+# base_path="/Volumes/data_ssd3/Barber_Lab/data/"
+
+# num_scenes = 4
+# expt_id="/260531_bFB66_LB_long"
+# base_path="/Volumes/data_ssd3/Barber_Lab/data/"
+
+# num_scenes = 4
+# expt_id="/260531_bFB292_IPTG_Mg"
+# base_path="/Volumes/data_ssd3/Barber_Lab/data/"
+
+# num_scenes = 4
+# expt_id="/260527_bFB66_LB_long"
+# base_path="/Volumes/data_ssd3/Barber_Lab/data/"
+
+# num_scenes = 4
+# expt_id="/260527_bFB292_IPTG_Mg"
+# base_path="/Volumes/data_ssd3/Barber_Lab/data/"
+
+# num_scenes = 4
+# expt_id="/260521_bFB292_IPTG_Mg"
+# base_path="/Volumes/data_ssd3/Barber_Lab/data/"
+
+# num_scenes = 4
+# expt_id="/260520_bFB66_NLS_PBS_Mg"
+# base_path="/Volumes/data_ssd3/Barber_Lab/data/"
+
+# num_scenes = 4
+# expt_id="/260520_bFB66_NLS_PBS_Mg"
+# base_path="/Volumes/data_ssd3/Barber_Lab/data/"
+
+# num_scenes = 4
+# expt_id="/260519_bFB291_IPTG"
+# base_path="/Volumes/data_ssd3/Barber_Lab/data/"
+
+# num_scenes = 4
+# expt_id="/260519_bFB66_Tun_NLS_PBS_Mg_v2"
+# base_path="/Volumes/data_ssd3/Barber_Lab/data/"
+
+# num_scenes = 4
+# expt_id="/260519_bFB66_Tun_NLS_PBS_Mg"
+# base_path="/Volumes/data_ssd3/Barber_Lab/data/"
+
+# num_scenes = 4
+# expt_id="/260306_bFB295_IPTG"
+# base_path="/Volumes/data_ssd3/Barber_Lab/data/"
+
+# num_scenes = 4
+# expt_id="/260506_bFB66_Tun_NLS_PBS_Mg_v2"
+# base_path="/Volumes/data_ssd3/Barber_Lab/data/"
+
+# num_scenes = 3
+# expt_id="/260505_bFB66_NLS_PBS_Mg"
+# base_path="/Volumes/data_ssd3/Barber_Lab/data/"
+
+
+# num_scenes = 4
+# expt_id="/260416_bFB295_IPTG_induction"
+# base_path="/Volumes/data_ssd3/Barber_Lab/data/"
+
+# num_scenes = 3
+# expt_id="/260505_bFB66_Tun_NLS_PBS_Mg"
+# base_path="/Volumes/data_ssd3/Barber_Lab/data/"
+
+# num_scenes = 4
+# expt_id="/260504_bFB66_NLS_PBS_Mg_v2"
+# base_path="/Volumes/data_ssd2/Barber_Lab/data/"
+
+# num_scenes = 3
+# expt_id="/260504_bFB66_NLS_PBS_Mg"
+# base_path="/Volumes/data_ssd2/Barber_Lab/data/"
+
+# num_scenes = 3
+# expt_id="/260430_bFB66_15MSorb_noMg"
+# base_path="/Volumes/data_ssd2/Barber_Lab/data/"
+
+# num_scenes = 3
+# expt_id="/260430_bFB66_2MSorb_10mMMgCl2_LB"
+# base_path="/Volumes/data_ssd2/Barber_Lab/data/"
+
+# num_scenes = 3
+# expt_id="/260430_bFB66_15MSorb_10mMMgCl2"
+# base_path="/Volumes/data_ssd2/Barber_Lab/data/"
+
+# num_scenes = 2
+# expt_id="/260428_bFB66_2MSorb_10mMMgCl2_noAF"
+# base_path="/Volumes/data_ssd2/Barber_Lab/data/"
+
+# num_scenes = 2
+# expt_id="/260428_bFB66_2MSorb_10mMMgCl2"
+# base_path="/Volumes/data_ssd2/Barber_Lab/data/"
+
+# num_scenes = 2
+# expt_id="/260428_bFB66_2MSorb_20mMMgCl2"
+# base_path="/Volumes/data_ssd2/Barber_Lab/data/"
+
+# num_scenes = 4
+# expt_id="/250402_bFB66_LB"
+# base_path="/Volumes/data_ssd2/Rojas_Lab/data/"
+
+
+# num_scenes = 3
+# expt_id="/250326_bFB295_IPTG_induction"
+# base_path="/Volumes/data_ssd2/Rojas_Lab/data/"
+
+# num_scenes = 4
+# expt_id="/250324_bFB291_IPTG_induction"
+# base_path="/Volumes/data_ssd2/Rojas_Lab/data/"
+
+# base_path="/Volumes/data_ssd2/Rojas_Lab/data"
+# expt_id="/250408_bFB291_IPTG_induction"
+# num_scenes=4
+
+# base_path="/Volumes/data_ssd2/Rojas_Lab/data"
+# expt_id="/260216_bFB292_IPTG_Mg"
+# num_scenes=4
+
+
+# base_path="/Volumes/data_ssd2/Rojas_Lab/data"
+# expt_id="/250324_bFB291_IPTG_induction"
+# num_scenes=4
+
+# base_path="/Volumes/data_ssd2/Barber_Lab/data"
+# expt_id="/260414_bFB292_IPTG"
+# num_scenes=3
+
+# base_path="/Volumes/data_ssd2/Barber_Lab/data"
+# expt_id="/260316_bBF292_IPTG_Mg"
+# num_scenes=4
+
+# base_path="/Volumes/data_ssd2/Barber_Lab/data"
+# expt_id="/260313_bBF292_IPTG"
+# num_scenes=4
 
 # base_path="/Volumes/data_ssd2/Rojas_Lab/data"
 # expt_id="/250325_bFB293_IPTG_induction"
@@ -37,10 +191,6 @@ num_scenes=4
 # base_path="/Volumes/data_ssd2/Rojas_Lab/data"
 # expt_id="/250403_bFB292_IPTG_induction"
 # num_scenes=2
-
-# base_path="/Volumes/data_ssd2/Barber_Lab/data"
-# expt_id="/260217_bFB292_IPTG_Mg"
-# num_scenes=4
 
 # base_path="/Volumes/data_ssd2/Barber_Lab/data"
 # expt_id="/260217_bFB292_IPTG_Mg"
@@ -59,11 +209,12 @@ for scene in range(1,num_scenes+1): # Iterate through scenes
     #     print(file)
 
     model_name = 'bact_phase_affinity'
+    # model_name = 'bact_fluor_omni'
     model = models.CellposeModel(gpu=use_GPU, model_type=model_name)
 
     n = [-1]  # make a list of integers to select which images you want to segment
     # n = range(nimg) # or just segment them all
-
+    # print(n)
     # define parameters
     params = {'channels': None,  # always define this if using older models, e.g. [0,0] with bact_phase_omni
               'rescale': None,  # upscale or downscale your images, None = no rescaling
